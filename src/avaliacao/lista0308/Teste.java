@@ -7,5 +7,6 @@ public class Teste {
         Estudante reg1 = new Estudante("fulanito cabrito");
         reg1.insereNotas();
         System.out.println(Arrays.toString(reg1.getNotas()));
+        System.out.println("Média de "+reg1.getNomeEstudante()+":"+reg1.calculaMedia());
     }
 }
