@@ -1,6 +1,7 @@
 package avaliacao.lista0308;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Estudante {
     private String nomeEstudante;
@@ -20,6 +21,14 @@ public class Estudante {
         return notas;
     }
 
+    public void insereNotas(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("----INSERÇÃO DE NOTAS----");
+        for(int i=0;i<5;i++){
+            System.out.println("Insira a "+(i+1)+"° nota-> ");
+            notas[i] = sc.nextDouble();
+        }
+    }
 
 
 }
