@@ -1,6 +1,7 @@
 package avaliacao.lista0308;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Estudante {
@@ -38,5 +39,7 @@ public class Estudante {
         return sum/notas.length;
     }
 
-
+    public double menorNota(){
+        return Arrays.stream(notas).min().orElse(0);
+    }
 }
