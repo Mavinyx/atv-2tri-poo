@@ -15,4 +15,8 @@ public class Periodico extends Exemplar{
     public void setnVolume(int nVolume) {
         this.nVolume = nVolume;
     }
+    @Override
+    public String toString(){
+        return getTitulo()+" - vol: "+nVolume;
+    }
 }

@@ -1,6 +1,6 @@
 package avaliacao.lista0308.biblioteca;
 
-public class Exemplar {
+public abstract class Exemplar {
     protected String titulo;
 
     public Exemplar(String titulo) {
@@ -14,4 +14,5 @@ public class Exemplar {
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
+
 }

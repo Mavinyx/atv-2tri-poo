@@ -8,11 +8,16 @@ public class Livro extends Exemplar {
         this.disponivel = true;
     }
 
-    public boolean isDisponivel() {
-        return disponivel;
+    public String isDisponivel() {
+        return disponivel==true ? "Disponível" : "Indisponivel";
     }
 
     public void setDisponivel(boolean disponivel) {
         this.disponivel = disponivel;
+    }
+
+    @Override
+    public String toString(){
+        return getTitulo()+" - status: "+isDisponivel();
     }
 }
