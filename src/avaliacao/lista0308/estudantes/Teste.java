@@ -1,7 +1,6 @@
-package avaliacao.lista0308;
+package avaliacao.lista0308.estudantes;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Teste {
