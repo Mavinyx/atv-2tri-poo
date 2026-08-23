@@ -26,7 +26,11 @@ public class Estudante {
         System.out.println("----INSERÇÃO DE NOTAS----");
         for(int i=0;i<5;i++){
             System.out.println("Insira a "+(i+1)+"° nota-> ");
-            notas[i] = sc.nextDouble();
+            double notaDigitada = sc.nextDouble();
+            if (notaDigitada < 0 || notaDigitada > 10) {
+                throw new NotaInvalidaException("Erro: A nota deve estar entre 0 e 10!");
+            }
+                notas[i] = notaDigitada;
         }
     }
 
