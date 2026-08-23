@@ -8,6 +8,7 @@ public class Teste {
         Scanner sc = new Scanner(System.in);
         ArrayList<Livro> livros = new ArrayList<Livro>();
         ArrayList<Periodico> periodicos = new ArrayList<Periodico>();
+
         boolean sair=false;
         while(sair==false){
             System.out.println("-------------- BEM VINDO ---------------");
@@ -21,7 +22,7 @@ public class Teste {
                     registroPeriodico(sc,periodicos);
                     break;
                 case 3:
-                    registroEmprestimo(sc);
+                    registroEmprestimo(sc,livros);
                     break;
                 case 4:
                     for(Livro livro : livros){
@@ -58,7 +59,28 @@ public class Teste {
         Periodico p = new Periodico(title, vol);
         periodicos.add(p);
     }
-    public static void registroEmprestimo(Scanner sc){
+    public static void registroEmprestimo(Scanner sc, ArrayList<Livro> livros){
+        System.out.println("\n--- Escolha um Livro ---");
+        for (int i = 0; i < livros.size(); i++) {
+            System.out.println(i + " - " + livros.get(i));
+        }
 
+        System.out.print("Digite o número do livro: ");
+        int indice = sc.nextInt();
+
+        System.out.println("O que deseja fazer?");
+        System.out.println("1 - Emprestar (Marcar como Indisponível)");
+        System.out.println("2 - Devolver (Marcar como Disponível)");
+        int acao = sc.nextInt();
+
+        if (acao == 1) {
+            livros.get(indice).setDisponivel(false);
+            System.out.println("Empréstimo realizado com sucesso!");
+        } else if (acao == 2) {
+            livros.get(indice).setDisponivel(true);
+            System.out.println("Devolução realizada com sucesso!");
+        } else {
+            System.out.println("Ação inválida!");
+        }
     }
 }
