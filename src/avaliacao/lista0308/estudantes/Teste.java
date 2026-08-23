@@ -1,17 +1,35 @@
 package avaliacao.lista0308.estudantes;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Teste {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         ArrayList<Estudante>estudantes = new ArrayList<Estudante>();
+
         Estudante reg1 = new Estudante("fulanito cabrito");
         Estudante reg2 = new Estudante("juanita bella");
         estudantes.add(reg1);
         estudantes.add(reg2);
-        reg1.insereNotas();
+
+        boolean notasValidas = false;
+
+        while (!notasValidas) {
+            try {
+                reg1.insereNotas();
+                notasValidas = true;
+
+            } catch (NotaInvalidaException e) {
+                System.out.println(e.getMessage());
+                System.out.println("Tente novamente...\n");
+
+            } catch (InputMismatchException e) {
+                System.out.println("Erro: Você deve digitar um número, não letras!");
+                System.out.println("Tente novamente...\n");
+            }
+        }
         //reg2.insereNotas();
         //System.out.println(Arrays.toString(reg1.getNotas()));
         //System.out.println("Média de "+reg1.getNomeEstudante()+":"+reg1.calculaMedia());
@@ -31,7 +49,7 @@ public class Teste {
                 aprovados.add(aluno);
             }
         }
-        System.out.println("Media"+sum / estudantes.toArray().length);
+        System.out.println("Media" + sum / estudantes.size());
         System.out.println("Estudante   -   Media\n"+aprovados);
     }
     public static void calcularMediaPonderada(Estudante registro,Scanner sc){
